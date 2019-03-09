@@ -14,5 +14,11 @@
     "default_title": "Add Snow",
     "default_icon": "images/snowglobe-1.png"
   },
+  "icons": {
+    "16": "images/snowglobe-1.png",
+    "32": "images/snowglobe-1.png",
+    "48": "images/snowglobe-1.png",
+    "128": "images/snowglobe-1.png"
+  },
   "manifest_version": 2
 }
