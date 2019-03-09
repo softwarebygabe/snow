@@ -3,7 +3,6 @@
   "version": "1.0",
   "description": "Add gently falling snow to your webpage :)",
   "author": "Gabe Szczepanek",
-  "default_locale": "en",
   "permissions": [
     "activeTab"
   ],
@@ -14,5 +13,5 @@
   "browser_action": {
     "default_title": "Add Snow"
   },
-  "manifest_version": 2,
+  "manifest_version": 2
 }
