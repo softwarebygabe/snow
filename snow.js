@@ -13,13 +13,19 @@ function setWindowResize(window, canvas) {
 }
 
 function Flake(canvas, ctx) {
+  const MAX_FLAKE_RADIUS = 5;
+  const FLAKE_COLOR = "#FFF";
+  const FLAKE_SHADOW_BLUR = 2; // flake "fuzziness"
+  const FLAKE_SHADOW_COLOR = "#DDD";
+
+
   const random = MATH.random();
   const distance = .05 + .95 * random;
   this.x = 1.5 * canvas.width * MATH.random() - .5 * canvas.width;
   this.y = -9;
   this.velX = 2* 2 * distance * (MATH.random() / 2 + .5);
   this.velY = 2* (4 + 2 * MATH.random()) * distance;
-  this.radius = MATH.pow(5 * random, 2) / 5;
+  this.radius = MATH.pow(MAX_FLAKE_RADIUS * random, 2) / 5;
   // movement function
   this.update = function () {
     const t = this;
@@ -27,9 +33,9 @@ function Flake(canvas, ctx) {
     t.y += t.velY;
     ctx.beginPath();
     ctx.arc(t.x, t.y, t.radius, 0, 2 * MATH.PI, !1);
-    ctx.fillStyle = "#FFF";
-    ctx.shadowBlur=2;
-    ctx.shadowColor="#ddd";
+    ctx.fillStyle = FLAKE_COLOR;
+    ctx.shadowBlur = FLAKE_SHADOW_BLUR;
+    ctx.shadowColor = FLAKE_COLOR;
     ctx.fill()
   }
 }
