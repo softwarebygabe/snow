@@ -1,4 +1,4 @@
-const CANVAS_ID = 'snow';
+const CANVAS_ID = "snow";
 const MATH = Math;
 
 function canvasResize(canvas) {
@@ -9,22 +9,21 @@ function canvasResize(canvas) {
 function setWindowResize(window, canvas) {
   window.onresize = function () {
     canvasResize(canvas);
-  }
+  };
 }
 
 function Flake(canvas, ctx) {
-  const MAX_FLAKE_RADIUS = 5;
+  const MAX_FLAKE_RADIUS = config.maxFlakeRadius;
   const FLAKE_COLOR = "#FFF";
   const FLAKE_SHADOW_BLUR = 2; // flake "fuzziness"
   const FLAKE_SHADOW_COLOR = "#DDD";
 
-
   const random = MATH.random();
-  const distance = .05 + .95 * random;
-  this.x = 1.5 * canvas.width * MATH.random() - .5 * canvas.width;
+  const distance = 0.05 + 0.95 * random;
+  this.x = 1.5 * canvas.width * MATH.random() - 0.5 * canvas.width;
   this.y = -9;
-  this.velX = 2* 2 * distance * (MATH.random() / 2 + .5);
-  this.velY = 2* (4 + 2 * MATH.random()) * distance;
+  this.velX = 2 * 2 * distance * (MATH.random() / 2 + 0.5);
+  this.velY = 2 * (4 + 2 * MATH.random()) * distance;
   this.radius = MATH.pow(MAX_FLAKE_RADIUS * random, 2) / 5;
   // movement function
   this.update = function () {
@@ -36,8 +35,8 @@ function Flake(canvas, ctx) {
     ctx.fillStyle = FLAKE_COLOR;
     ctx.shadowBlur = FLAKE_SHADOW_BLUR;
     ctx.shadowColor = FLAKE_COLOR;
-    ctx.fill()
-  }
+    ctx.fill();
+  };
 }
 
 function addSnowFlakes(canvas, ctx, flakeArray) {
@@ -60,7 +59,7 @@ function addSnow() {
 
   canvas.id = CANVAS_ID;
   document.body.appendChild(canvas);
-  
+
   const flakeArray = [];
 
   // canvas styles
@@ -75,9 +74,9 @@ function addSnow() {
   canvasResize(canvas);
   setWindowResize(window, canvas);
 
-  setInterval(function() {
+  setInterval(function () {
     addSnowFlakes(canvas, ctx, flakeArray);
   }, 32);
-};
+}
 
 addSnow();

@@ -1,17 +1,15 @@
 {
+  "manifest_version": 2,
   "name": "Snow",
-  "version": "1.0",
+  "version": "2.0.0",
   "description": "Add gently falling snow to your webpage :)",
   "author": "Gabe Szczepanek",
   "permissions": [
     "activeTab"
   ],
-  "background": {
-    "scripts": [ "background.js" ],
-    "persistent": false
-  },
   "browser_action": {
     "default_title": "Add Snow",
+    "default_popup": "popup.html",
     "default_icon": "images/snowglobe-1.png"
   },
   "icons": {
@@ -19,6 +17,5 @@
     "32": "images/snowglobe-1.png",
     "48": "images/snowglobe-1.png",
     "128": "images/snowglobe-1.png"
-  },
-  "manifest_version": 2
+  }
 }
