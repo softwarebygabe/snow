@@ -4,7 +4,25 @@
   <body>
     <h1>HELLO</h1>
     <label for="maxFlakeRadius">Max Flake Radius:</label>
-    <input type="number" id="maxFlakeRadius" value="5" />
+    <input
+      type="range"
+      id="maxFlakeRadius"
+      min="0"
+      max="20"
+      value="5"
+      step="1"
+    />
+    <label for="flakeDensity">Flake Density:</label>
+    <input type="range" id="flakeDensity" min="0" max="10" value="5" step="1" />
+    <label for="fallingSpeed">Falling Speed:</label>
+    <input
+      type="range"
+      id="fallingSpeed"
+      min="0"
+      max="50"
+      value="32"
+      step="2"
+    />
     <input type="button" id="addSnow" value="Submit" />
   </body>
 </html>

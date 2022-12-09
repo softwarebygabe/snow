@@ -16,6 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("maxFlakeRadius").addEventListener("change", (e) => {
     config.maxFlakeRadius = e.target.value;
   });
+  document.getElementById("fallingSpeed").addEventListener("change", (e) => {
+    config.fallingSpeed = e.target.value;
+  });
   // submit
   button.addEventListener("click", () => {
     console.log("add snow");

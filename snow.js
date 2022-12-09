@@ -1,6 +1,13 @@
 const CANVAS_ID = "snow";
 const MATH = Math;
 
+// config
+var FLAKE_COLOR = "#FFF";
+var FLAKE_SHADOW_BLUR = 2; // flake "fuzziness"
+var FLAKE_SHADOW_COLOR = "#DDD";
+
+var FALLING_SPEED = config.fallingSpeed || 32;
+
 function canvasResize(canvas) {
   canvas.height = canvas.offsetHeight;
   canvas.width = canvas.offsetWidth;
@@ -13,18 +20,14 @@ function setWindowResize(window, canvas) {
 }
 
 function Flake(canvas, ctx) {
-  const MAX_FLAKE_RADIUS = config.maxFlakeRadius;
-  const FLAKE_COLOR = "#FFF";
-  const FLAKE_SHADOW_BLUR = 2; // flake "fuzziness"
-  const FLAKE_SHADOW_COLOR = "#DDD";
-
+  const maxFlakeRadius = config.maxFlakeRadius || 5;
   const random = MATH.random();
   const distance = 0.05 + 0.95 * random;
   this.x = 1.5 * canvas.width * MATH.random() - 0.5 * canvas.width;
   this.y = -9;
   this.velX = 2 * 2 * distance * (MATH.random() / 2 + 0.5);
   this.velY = 2 * (4 + 2 * MATH.random()) * distance;
-  this.radius = MATH.pow(MAX_FLAKE_RADIUS * random, 2) / 5;
+  this.radius = MATH.pow(maxFlakeRadius * random, 2) / 5;
   // movement function
   this.update = function () {
     const t = this;
@@ -54,6 +57,13 @@ function addSnowFlakes(canvas, ctx, flakeArray) {
 }
 
 function addSnow() {
+  // clear canvas
+  // const existingCanvas = document.getElementById(CANVAS_ID);
+  // if (existingCanvas) {
+  //   console.log(existingCanvas);
+  //   document.body.removeChild(existingCanvas);
+  // }
+
   const canvas = document.createElement("canvas");
   const ctx = canvas.getContext("2d");
 
